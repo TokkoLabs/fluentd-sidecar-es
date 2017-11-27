@@ -7,7 +7,7 @@
 # This configuration assumes that the cluster this pod is running in has an
 # Elasticsearch instance reachable via a service named elasticsearch-logging.
 
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 # Ensure there are enough file descriptors for running Fluentd.
 RUN ulimit -n 65536
