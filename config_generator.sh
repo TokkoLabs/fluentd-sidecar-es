@@ -25,15 +25,14 @@ do
   cat > "/etc/td-agent/files/${filename}" << EndOfMessage
 <source>
   type tail
-  format multiline
-  format_firstline /^(\d{4}\/\d{2}\/\d{2} \d{2}:\d{2}:\d{2} )([^ \-]*)[\-\ ]{2,3}(.*)$/
-  format1 /^(?<time>\d{4}\/\d{2}\/\d{2} \d{2}:\d{2}:\d{2} )(?<severity>[^ \-]*)[\-\ ]{2,3}(?<message>[^\n]*)[\n]{0,1}(?<stacktrace>^.+Exception[^\n]+(\s+at .+)+)*(?<other>.*)/
+  format none
   time_key time
   path ${filepath}
   pos_file /etc/td-agent/${filename}.pos
-  time_format %Y/%m/%d %H:%M:%S
-  tag bone.$CUSTOMER
+  time_format %Y-%m-%dT%H:%M:%S
+  tag file.${filename}
   read_from_head true
 </source>
+
 EndOfMessage
 done
