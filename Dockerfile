@@ -19,7 +19,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # project's parent company, Treasure Data).
 RUN apt-get -q update && \
     apt-get install -y curl && \
-    apt-get install -y -q libcurl4-openssl-dev make && \
+    apt-get install -y -q libcurl4-openssl-dev make build-essential && \
     apt-get clean
 RUN /usr/bin/curl -L http://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent2.sh | sh
 
