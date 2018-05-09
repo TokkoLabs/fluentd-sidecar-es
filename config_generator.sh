@@ -24,8 +24,7 @@ do
   filename=$(basename $filepath)
   cat > "/etc/td-agent/files/${filename}" << EndOfMessage
 <source>
-  type tail
-  format none
+  @type tail
   time_key time
   path ${filepath}
   pos_file /etc/td-agent/${filename}.pos
