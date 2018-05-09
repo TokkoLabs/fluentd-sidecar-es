@@ -31,6 +31,7 @@ do
   pos_file /etc/td-agent/${filename}.pos
   time_format %Y-%m-%dT%H:%M:%S
   tag file.${filename}
+  format /^(?<log>.*)$/
   read_from_head true
 </source>
 
